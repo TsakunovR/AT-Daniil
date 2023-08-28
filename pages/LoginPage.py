@@ -1,6 +1,7 @@
+from selenium import
 
-from sel
 class LoginPageLocators
+
 TOOLBAR_OK = '//*[@class="toolbar_logo_img"]'
 LOGIN_FIELD = '//*[@id="field_email"]'
 PASSWORD_FILED = '//*[@type="password"]'
