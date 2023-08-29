@@ -14,3 +14,4 @@ class Basepage:
 
     def go_to_url(self,url):
         return self.driver.get(url)
+      
