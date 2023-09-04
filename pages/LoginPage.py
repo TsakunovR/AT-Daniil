@@ -34,6 +34,7 @@ class LoginPageHelper(BasePage):
     def get_error_text(self):
         error_field = self.findelement(LoginPageLocators.ERROR_FIELD)
         return error_field.text
+
     def login_send_keys(self,text):
         loginkeys = self.findelement(LoginPageLocators.LOGIN_FIELD)
         loginkeys.send_keys(text)
