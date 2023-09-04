@@ -18,4 +18,4 @@ class TestNotAuth:
         login_page.login_send_keys('qwerty')
         login_page = LoginPageHelper(browser)
         login_page.click_login_button()
-        assert login_page.get_error_text() == "Введите логин"
+        assert login_page.get_error_text() == "Введите пароль"
