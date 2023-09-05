@@ -1,6 +1,7 @@
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
+
 class LoginPageLocators:
         LOGIN_FIELD = (By.XPATH, '//*[@id="field_email"]')
         PASSWORD_FILED = (By.XPATH, '//*[@type="password"]')
