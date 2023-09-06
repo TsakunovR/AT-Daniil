@@ -11,6 +11,5 @@ class BasePage:
 
     def findelements(self,locator,time=10):
         return WDW(self.driver,time).until(EC.presence_of_all_elements_located(locator),message=f'Не смогли дождаться элемента {locator}')
-
     def go_to_url(self,url):
         return self.driver.get(url)

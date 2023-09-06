@@ -6,15 +6,16 @@ class LoginPageLocators:
         LOGIN_FIELD = (By.XPATH, '//*[@id="field_email"]')
         PASSWORD_FILED = (By.XPATH, '//*[@type="password"]')
         LOGIN_BUTTON = (By.XPATH, './/*[@data-l="t,sign_in"]')
-        IN_QR = '//*[@data-l="t,get_qr"]'
+        IN_QR = (By.XPATH,'//*[@data-l="t,get_qr"]')
         LOGIN_FOGOT = '//*[@data-l="t,restore"]'
-        REGISTRATION = '//*[@data-l="t,register"]'
+        REGISTRATION = (By.XPATH,'//*[@class="login-form-actions"]//*[@data-l="t,register"]')
         ICON_VK = '//*[@data-l="t,vkc"]'
         ICON_MAIL = '//*[@data-l="t,mailru"]'
         ICON_GO = '//*[@data-l="t,google"]'
         ICON_YA = '//*[@data-l="t,yandex"]'
         ICON_APPLE = '//*[@data-l="t,apple"]'
         ERROR_FIELD = (By.XPATH, '//*[@class="input-e login_error"]')
+        INFO_TEXT = (By.XPATH,'//*[@class="qr_code_info_header"]')
 
 
 class LoginPageHelper(BasePage):
@@ -39,3 +40,16 @@ class LoginPageHelper(BasePage):
     def login_send_keys(self,text):
         loginkeys = self.findelement(LoginPageLocators.LOGIN_FIELD)
         loginkeys.send_keys(text)
+
+    def click_reg_button(self):
+        reg_button = self.findelement(LoginPageLocators.REGISTRATION)
+        reg_button.click()
+
+    def click_qr_button(self):
+        qr_button = self.findelement(LoginPageLocators.IN_QR)
+        qr_button.click()
+
+    def get_info_text(self):
+        info_text = self.findelement(LoginPageLocators.INFO_TEXT)
+        return info_text.text
+
