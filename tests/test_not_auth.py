@@ -4,8 +4,9 @@ from pages.LoginPage import LoginPageHelper
 import allure
 
 
-@allure.suite ('Проверка валидации пустой формы авторизации')
+
 class TestNotAuth:
+    @allure.suite('Проверка валидации пустой формы авторизации')
     def test_empty_auth_form(self, browser):
         base_page = BasePage(browser)
         with allure.step ('Открываем страницу авторизации'):

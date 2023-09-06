@@ -7,13 +7,13 @@ class LoginPageLocators:
         PASSWORD_FILED = (By.XPATH, '//*[@type="password"]')
         LOGIN_BUTTON = (By.XPATH, './/*[@data-l="t,sign_in"]')
         IN_QR = (By.XPATH,'//*[@data-l="t,get_qr"]')
-        LOGIN_FOGOT = '//*[@data-l="t,restore"]'
+        LOGIN_FOGOT = (By.XPATH,'//*[@data-l="t,restore"]')
         REGISTRATION = (By.XPATH,'//*[@class="login-form-actions"]//*[@data-l="t,register"]')
-        ICON_VK = '//*[@data-l="t,vkc"]'
-        ICON_MAIL = '//*[@data-l="t,mailru"]'
-        ICON_GO = '//*[@data-l="t,google"]'
-        ICON_YA = '//*[@data-l="t,yandex"]'
-        ICON_APPLE = '//*[@data-l="t,apple"]'
+        ICON_VK = (By.XPATH,'//*[@data-l="t,vkc"]')
+        ICON_MAIL = (By.XPATH,'//*[@data-l="t,mailru"]')
+        ICON_GO = (By.XPATH,'//*[@data-l="t,google"]')
+        ICON_YA = (By.XPATH,'//*[@data-l="t,yandex"]')
+        ICON_APPLE = (By.XPATH,'//*[@data-l="t,apple"]')
         ERROR_FIELD = (By.XPATH, '//*[@class="input-e login_error"]')
         INFO_TEXT = (By.XPATH,'//*[@class="qr_code_info_header"]')
 
