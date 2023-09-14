@@ -49,7 +49,9 @@ class LoginPageHelper(BasePage):
         qr_button = self.findelement(LoginPageLocators.IN_QR)
         qr_button.click()
 
+
     def get_info_text(self):
         info_text = self.findelement(LoginPageLocators.INFO_TEXT)
         return info_text.text
+
 
