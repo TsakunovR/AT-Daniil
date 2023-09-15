@@ -1,10 +1,15 @@
-class Basepage:
+from selenium.webdriver.support.wait import WebDriverWait as WDW
+from selenium.webdriver.support import expected_conditions as EC
 
-    def __init__(self):
-        pass
+class BasePage:
 
-    def findelemet(self):
-        pass
+    def __init__(self,driver):
+        self.driver = driver
 
-    def findelemets(self):
-        pass
+    def findelement(self,locator,time=10):
+        return WDW(self.driver,time).until(EC.presence_of_element_located(locator),message=f'Не смогли дождаться элемента {locator}')
+
+    def findelements(self,locator,time=10):
+        return WDW(self.driver,time).until(EC.presence_of_all_elements_located(locator),message=f'Не смогли дождаться элемента {locator}')
+    def go_to_url(self,url):
+        return self.driver.get(url)
