@@ -6,10 +6,11 @@ class BasePage:
     def __init__(self,driver):
         self.driver = driver
 
-    def findelement(self,locator,time=10):
+    def findElement(self,locator,time=10):
         return WDW(self.driver,time).until(EC.presence_of_element_located(locator),message=f'Не смогли дождаться элемента {locator}')
 
-    def findelements(self,locator,time=10):
+    def findElements(self,locator,time=10):
         return WDW(self.driver,time).until(EC.presence_of_all_elements_located(locator),message=f'Не смогли дождаться элемента {locator}')
+
     def go_to_url(self,url):
         return self.driver.get(url)

@@ -16,9 +16,14 @@ class LoginPageLocators:
         ICON_APPLE = (By.XPATH,'//*[@data-l="t,apple"]')
         ERROR_FIELD = (By.XPATH, '//*[@class="input-e login_error"]')
         INFO_TEXT = (By.XPATH,'//*[@class="qr_code_info_header"]')
+        GIFTS_BUTTON = (By.XPATH,'//*[@href="https://ok.ru/gifts"]')
 
 
 class LoginPageHelper(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.__check_page()
+
     def __check_page(self):
             self.findElement(LoginPageLocators.LOGIN_FIELD)
             self.findElement(LoginPageLocators.PASSWORD_FILED)
@@ -29,29 +34,35 @@ class LoginPageHelper(BasePage):
             self.findElement(LoginPageLocators.ICON_VK)
             self.findElement(LoginPageLocators.ICON_MAIL)
             self.findElement(LoginPageLocators.ICON_GO)
+            self.findElement(LoginPageLocators.GIFTS_BUTTON)
     def click_login_button(self):
-        login_button = self.findelement(LoginPageLocators.LOGIN_BUTTON)
+        login_button = self.findElement(LoginPageLocators.LOGIN_BUTTON)
         login_button.click()
 
     def get_error_text(self):
-        error_field = self.findelement(LoginPageLocators.ERROR_FIELD)
+        error_field = self.findElement(LoginPageLocators.ERROR_FIELD)
         return error_field.text
 
     def login_send_keys(self,text):
-        loginkeys = self.findelement(LoginPageLocators.LOGIN_FIELD)
+        loginkeys = self.findElement(LoginPageLocators.LOGIN_FIELD)
         loginkeys.send_keys(text)
 
     def click_reg_button(self):
-        reg_button = self.findelement(LoginPageLocators.REGISTRATION)
+        reg_button = self.findElement(LoginPageLocators.REGISTRATION)
         reg_button.click()
 
     def click_qr_button(self):
-        qr_button = self.findelement(LoginPageLocators.IN_QR)
+        qr_button = self.findElement(LoginPageLocators.IN_QR)
         qr_button.click()
 
 
     def get_info_text(self):
-        info_text = self.findelement(LoginPageLocators.INFO_TEXT)
+        info_text = self.findElement(LoginPageLocators.INFO_TEXT)
         return info_text.text
+
+
+    def click_gifts_button(self):
+        gifts_button = self.findElement(LoginPageLocators.GIFTS_BUTTON)
+        gifts_button.click()
 
 
