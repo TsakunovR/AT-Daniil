@@ -65,4 +65,8 @@ class LoginPageHelper(BasePage):
         gifts_button = self.findElement(LoginPageLocators.GIFTS_BUTTON)
         gifts_button.click()
 
+    def click_no_entry(self):
+        no_enter = self.findElement(LoginPageLocators.LOGIN_FOGOT)
+        no_enter.click()
+
 
