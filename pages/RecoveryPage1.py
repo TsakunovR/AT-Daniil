@@ -10,9 +10,7 @@ class RecoveryPageLocators1:
 
 
 class RecoveryPageHelper1(BasePage):
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.__check_page()
+
     def __check_page(self):
         self.findElement(RecoveryPageLocators1.NUMBER)
         self.findElement(RecoveryPageLocators1.GET_CODE_ON_PHONE)

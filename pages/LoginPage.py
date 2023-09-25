@@ -1,5 +1,6 @@
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class LoginPageLocators:
@@ -17,6 +18,8 @@ class LoginPageLocators:
         ERROR_FIELD = (By.XPATH, '//*[@class="input-e login_error"]')
         INFO_TEXT = (By.XPATH,'//*[@class="qr_code_info_header"]')
         GIFTS_BUTTON = (By.XPATH,'//*[@href="https://ok.ru/gifts"]')
+        MORE = (By.XPATH,'//*[@class="tico tico__simb-right"]')
+        POPUP_ElEMENT = (By.XPATH,'//*[@id="1189148608]//*[@class="more-popup_link_item"]')
 
 
 class LoginPageHelper(BasePage):
@@ -35,6 +38,8 @@ class LoginPageHelper(BasePage):
             self.findElement(LoginPageLocators.ICON_MAIL)
             self.findElement(LoginPageLocators.ICON_GO)
             self.findElement(LoginPageLocators.GIFTS_BUTTON)
+            self.findElement(LoginPageLocators.MORE)
+            self.findElement(LoginPageLocators.POPUP_ElEMENT)
     def click_login_button(self):
         login_button = self.findElement(LoginPageLocators.LOGIN_BUTTON)
         login_button.click()
@@ -68,5 +73,16 @@ class LoginPageHelper(BasePage):
     def click_no_entry(self):
         no_enter = self.findElement(LoginPageLocators.LOGIN_FOGOT)
         no_enter.click()
+
+
+    def hover_and_click_on_more(self,index):
+        more = self.findElement(LoginPageLocators.MORE)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(more)
+        popup_element = self.findElement(LoginPageLocators.POPUP_ElEMENT)
+        actions.click(popup_element)
+
+
+
 
 
