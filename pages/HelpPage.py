@@ -8,10 +8,10 @@ class HelpPageLocators:
 
 class HelpPageHelper(BasePage):
     def __check_page(self):
-        self.findelement(HelpPageLocators.TITLE)
+        self.findElement(HelpPageLocators.TITLE)
 
 
     def get_help_title(self):
-        title_help = self.findelement(HelpPageLocators.TITLE)
+        title_help = self.findElement(HelpPageLocators.TITLE)
         return title_help.text
 

@@ -4,8 +4,8 @@ from pages.LoginPage import LoginPageHelper
 from pages.HelpPage import HelpPageHelper
 from pages.GiftsPage import GiftsPageHelper
 from pages.RecoveryPage1 import RecoveryPageHelper1
-from pages.RecoveryPage2 import RecoveryPageHelper2
-from pages.RecoveryPage3 import RecoveryPageHelper3
+from pages.SupportPage import SupportPageHelper
+from pages.PolicyPage import PolicyPageHelper
 import allure
 from BaseTest import browser
 
@@ -16,10 +16,11 @@ class TestАgreementPolicy:
         with allure.step('Открываем страницу авторизации'):
             base_page = BasePage(browser)
             base_page.go_to_url("https://ok.ru")
-        with allure.step('Кликаем еще'):
+        with allure.step('Кликаем еще затем кликаем политики'):
             login_page = LoginPageHelper(browser)
-            login_page.hover_and_click_on_more(2)
+            login_page.hover_and_click_on_more()
         with allure.step('Проверяем страницу соглашения и политики'):
+            policy_page = PolicyPageHelper(browser)
             allure.attach(
                 browser.get_screenshot_as_png(),
                 name='screenshot',

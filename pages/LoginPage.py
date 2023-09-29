@@ -18,8 +18,9 @@ class LoginPageLocators:
         ERROR_FIELD = (By.XPATH, '//*[@class="input-e login_error"]')
         INFO_TEXT = (By.XPATH,'//*[@class="qr_code_info_header"]')
         GIFTS_BUTTON = (By.XPATH,'//*[@href="https://ok.ru/gifts"]')
-        MORE = (By.XPATH,'//*[@class="tico tico__simb-right"]')
-        POPUP_ElEMENT = (By.XPATH,'//*[@id="1189148608]//*[@class="more-popup_link_item"]')
+        MORE = (By.XPATH,'//*[@data-module="DropdownOpener"]')
+        POLICY = (By.XPATH,'//a[contains(@href,"agreement")]')
+
 
 
 class LoginPageHelper(BasePage):
@@ -39,7 +40,7 @@ class LoginPageHelper(BasePage):
             self.findElement(LoginPageLocators.ICON_GO)
             self.findElement(LoginPageLocators.GIFTS_BUTTON)
             self.findElement(LoginPageLocators.MORE)
-            self.findElement(LoginPageLocators.POPUP_ElEMENT)
+
     def click_login_button(self):
         login_button = self.findElement(LoginPageLocators.LOGIN_BUTTON)
         login_button.click()
@@ -75,12 +76,11 @@ class LoginPageHelper(BasePage):
         no_enter.click()
 
 
-    def hover_and_click_on_more(self,index):
+    def hover_and_click_on_more(self):
         more = self.findElement(LoginPageLocators.MORE)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(more)
-        popup_element = self.findElement(LoginPageLocators.POPUP_ElEMENT)
-        actions.click(popup_element)
+        more.click()
+        policy = self.findElement(LoginPageLocators.POLICY)
+        policy.click()
 
 
 

@@ -4,8 +4,7 @@ from pages.LoginPage import LoginPageHelper
 from pages.HelpPage import HelpPageHelper
 from pages.GiftsPage import GiftsPageHelper
 from pages.RecoveryPage1 import RecoveryPageHelper1
-from pages.RecoveryPage2 import RecoveryPageHelper2
-from pages.RecoveryPage3 import RecoveryPageHelper3
+from pages.SupportPage import SupportPageHelper
 import allure
 from BaseTest import browser
 
@@ -20,13 +19,14 @@ class TestSupport:
             login_page = LoginPageHelper(browser)
             login_page.click_no_entry()
         with allure.step('Кликаем обратиться в поддержку'):
-            rec_page = RecoveryPageHelper3(browser)
+            rec_page = RecoveryPageHelper1(browser)
             rec_page.click_on_support()
         with allure.step('Проверяем окно поддержки кликаем на кнопку закрытия окна'):
-            rec_page.click_win_sup()
+            tech_sup = SupportPageHelper(browser)
+            tech_sup.click_win_sup()
             allure.attach(
                 browser.get_screenshot_as_png(),
                 name='screenshot',
                 attachment_type=allure.attachment_type.PNG
             )
-            rec_page.click_win_sup()
+            tech_sup.click_win_sup()

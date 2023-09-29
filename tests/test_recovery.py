@@ -4,7 +4,8 @@ from pages.LoginPage import LoginPageHelper
 from pages.HelpPage import HelpPageHelper
 from pages.GiftsPage import GiftsPageHelper
 from pages.RecoveryPage1 import RecoveryPageHelper1
-from pages.RecoveryPage2 import RecoveryPageHelper2
+from pages.GetCodeOnPhonePage import GetCodeOnPhonePageHelper
+from pages.GetCodeOnPostPage import GetCodeOnPostHelper
 import allure
 from BaseTest import browser
 
@@ -22,14 +23,15 @@ class TestNotEnter:
             rec_page = RecoveryPageHelper1(browser)
             rec_page.click_on_phone()
         with allure.step('Кликаем получить код '):
-            rec_page.get_code_phone()
+            phone_page = GetCodeOnPhonePageHelper(browser)
+            phone_page.get_code_phone()
         with allure.step('Проверяем отображение ошибки'):
             allure.attach(
                 browser.get_screenshot_as_png(),
                 name='screenshot',
                 attachment_type=allure.attachment_type.PNG
             )
-        assert rec_page.get_text_wrong_phone() == 'Неправильный номер телефона.'
+        assert phone_page.get_text_wrong_phone() == 'Неправильный номер телефона.'
 
     @allure.suite('Проверка восстановления пароля с помощью почты  ')
     def test_not_enter2(self, browser):
@@ -40,17 +42,18 @@ class TestNotEnter:
             login_page = LoginPageHelper(browser)
             login_page.click_no_entry()
         with allure.step('Кликаем на значок телефона'):
-            rec_page = RecoveryPageHelper2(browser)
+            rec_page = RecoveryPageHelper1(browser)
             rec_page.click_on_post()
         with allure.step('Кликаем получить код '):
-            rec_page.get_code_post()
+            post_page = GetCodeOnPostHelper(browser)
+            post_page.get_code_post()
         with allure.step('Проверяем отображение ошибки'):
             allure.attach(
                 browser.get_screenshot_as_png(),
                 name='screenshot',
                 attachment_type=allure.attachment_type.PNG
             )
-        assert rec_page.get_text_wrong_post() == 'Неправильный формат почты'
+        assert post_page.get_text_wrong_post() == 'Неправильный формат почты'
 
 
 
